@@ -22,7 +22,7 @@ const newsItems = [
     description: "Our Ocean Habitats programme aims to protect vital Ocean ecosystems allowing them to regenerate. We are looking to restore them back to full health.",
     subtitle: "Explore our habitats work...",
     arrow: "/images/arrow-right-solid-dark-grey.svg",
-    inverted: false
+    inverted: true
   },
   {
     image: "/images/underwater-3.jpg",
