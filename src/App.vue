@@ -43,14 +43,9 @@ const newsItems = [
 
     <Wrapper>
       <NewsItem
-        v-for="({ image, heading, description, subtitle, arrow, inverted}, index) in newsItems"
+        v-for="(items, index) in newsItems"
         :key="index"
-        :image="image"
-        :heading="heading"
-        :description="description"
-        :subtitle="subtitle"
-        :arrow="arrow"
-        :inverted="inverted"
+        :items="items"
       />
     </Wrapper>
 
