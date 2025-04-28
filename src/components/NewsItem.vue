@@ -1,6 +1,6 @@
 <script setup>
-const { items } = defineProps(['items']);
-const { image, heading, description, subtitle, arrow, inverted } = items;
+const { item } = defineProps(['item']);
+const { image, heading, description, subtitle, arrow, inverted } = item;
 </script>
 
 <template>

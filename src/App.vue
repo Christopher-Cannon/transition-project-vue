@@ -43,9 +43,9 @@ const newsItems = [
 
     <Wrapper>
       <NewsItem
-        v-for="(items, index) in newsItems"
+        v-for="(item, index) in newsItems"
         :key="index"
-        :items="items"
+        :item="item"
       />
     </Wrapper>
 
