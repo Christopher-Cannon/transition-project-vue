@@ -1,0 +1,322 @@
+:root {
+  --primary: #d4467a;
+  --light-grey: #eeeeee;
+  --dark-grey: #444444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Radio Canada", Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.page-wrapper {
+  margin: auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.nav-link {
+  color: black;
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem auto;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  transition: color 0.125s ease-in-out;
+}
+
+.nav-link:not(.btn):hover {
+  color: var(--primary);
+}
+
+.hero-container {
+  background-image: url("assets/beach.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/*
+The text in these sections appear over an image, so to make them 
+easier to read apply a subtle text shadow.
+*/
+.hero,
+.newsletter {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 600px;
+  margin-bottom: 4rem;
+  text-align: center;
+  text-shadow: 0 0 8px #00000077;
+}
+
+.hero-curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.hero-heading {
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 1.5rem;
+}
+
+/* Insert a short line between the hero heading and subtitle. */
+.hero-heading::after {
+  background-color: white;
+  border-radius: 5px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 40px);
+  height: 5px;
+  width: 80px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.news-item {
+  display: block;
+  margin-bottom: 4rem;
+  text-decoration: none;
+}
+
+.news-item-image {
+  display: block;
+  height: 250px;
+  object-fit: cover;
+}
+
+.news-item-info {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem;
+}
+
+.news-item-inverted .news-item-info {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+}
+
+.news-item-heading {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.news-item-inverted .news-item-heading {
+  color: var(--primary);
+}
+
+.news-item-arrow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Smoothly transition the right property if it is modified later. */
+.news-item-arrow img {
+  position: relative;
+  right: 1rem;
+  width: 50px;
+  transition: right 0.2s ease-in-out;
+}
+
+/* Move the arrow to the right when a news item is hovered over. */
+.news-item:hover .news-item-arrow img {
+  right: 0;
+}
+
+.newsletter-container {
+  background-image: url("assets/fish.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.newsletter {
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.newsletter a {
+  margin-top: 0.5rem;
+}
+
+/* Rotate curve and stick to the top of the newsletter container. */
+.newsletter-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(0.5turn);
+}
+
+/* Here just for show. */
+.page-footer {
+  background-color: var(--dark-grey);
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    margin: 0;
+  }
+
+  .hero,
+  .newsletter {
+    font-size: 1.4rem;
+  }
+
+  .hero {
+    height: 800px;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .news-item-image {
+    height: 400px;
+  }
+
+  .news-item-info {
+    padding: 2rem 3rem;
+  }
+
+  .news-item-subtitle {
+    margin-bottom: 0;
+  }
+
+  .news-item-heading {
+    font-size: 2.25rem;
+  }
+
+  .news-item-arrow img {
+    right: 0;
+  }
+
+  .news-item:hover .news-item-arrow img {
+    right: -1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .hero {
+    margin-bottom: 6rem;
+  }
+
+  /* 
+    Need to give each news item a fixed height or they will end up 
+    being 0 pixels in height since both its children are positioned 
+    absolutely meaning they are removed from the document flow.
+    */
+  .news-item {
+    height: 650px;
+    position: relative;
+  }
+
+  /*
+    The images and info boxes are positioned absolutely in relation to 
+    their parent news item. The images are placed at the top while the 
+    info boxes are placed at the bottom.
+    */
+  .news-item-image {
+    position: absolute;
+    top: 0;
+    height: 500px;
+    width: 80%;
+  }
+
+  /*
+    Place every second image (i.e. 1,3,5,etc) at the left and the 
+    others at the right.
+
+    Do the opposite with the info boxes.
+    */
+  .news-item:nth-child(2n + 1) .news-item-image {
+    left: 0;
+  }
+
+  .news-item-inverted .news-item-image {
+    right: 0;
+  }
+
+  .news-item-info {
+    position: absolute;
+    top: 300px;
+    width: 80%;
+    z-index: 10;
+  }
+
+  .news-item:nth-child(2n + 1) .news-item-info {
+    right: 0;
+  }
+
+  .news-item-inverted .news-item-info {
+    left: 0;
+  }
+}
+
+/* Place generic elements at the bottom so they don't get overwritten. */
+.btn {
+  background-color: var(--primary);
+  border-radius: 50px;
+  color: white;
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.25rem 1.5rem;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.btn-larger {
+  font-size: 1.4rem;
+  padding: 0.75rem 2rem;
+}
